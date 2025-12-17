@@ -2,6 +2,7 @@ package jp.co.sss.crud.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.sss.crud.bean.EmployeeBean;
@@ -26,6 +27,7 @@ public class SearchAllEmployeesService {
 	 * Spring DIによって自動注入されます。
 	 */
 	//TODO ここに記述
+	@Autowired
 	public EmployeeRepository repository;
 
 	/**
@@ -45,14 +47,6 @@ public class SearchAllEmployeesService {
 		
 		return empBeans;
 		
-//		public interface repository extends JpaRepository<EmployeeBean, Integer> {
-//		List<EmployeeBean> execute();
-//		}
-		
-//			Employee employee = new Employee();
-//		employee = BeanManager.copyFormToEntity(foidAllByOrderByEmpIdAsc);
-//		BeanManager.
-
 	}
 
 }

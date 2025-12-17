@@ -1,5 +1,6 @@
 package jp.co.sss.crud.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.sss.crud.entity.Employee;
@@ -24,6 +25,7 @@ public class UpdateEmployeeService {
 	 * Spring DIによって自動注入されます。
 	 */
 	//TODO ここに記述
+	@Autowired
 	public EmployeeRepository repository;
 	/**
 	 * 従業員情報を更新します。

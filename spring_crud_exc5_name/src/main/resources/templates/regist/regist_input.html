@@ -14,6 +14,7 @@
 				<div class="label">パスワード：</div>
 				<div class="input required">
 					<input type="password" th:field="*{empPass}" />
+					<span th:errors="*{empPass}"></span>
 				</div>
 			</div>
 			
@@ -21,6 +22,7 @@
 				<div class="label">社員名：</div>
  				<div class="input required">
 					<input type="text" th:field="*{empName}" />
+					<span th:errors="*{empName}"></span>
 				</div>
 			</div>
 			
@@ -36,6 +38,7 @@
 				<div class="label">住所：</div>
 				<div class="input required">
 					<input type="text" th:field="*{address}" />
+					<span th:errors="*{address}"></span>
 				</div>
 			</div>
 			
@@ -43,6 +46,7 @@
 				<div class="label">生年月日：(YYYY/MM/DD)</div>
 				<div class="input required">
 					<input type="text" th:field="*{birthday}" />
+					<span th:errors="*{birthday}"></span>
 				</div>
 			</div>
 

@@ -2,6 +2,7 @@ package jp.co.sss.crud.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.sss.crud.bean.EmployeeBean;
@@ -27,6 +28,7 @@ public class SearchForEmployeesByDepartmentService {
 	 * Spring DIによって自動注入されます。
 	 */
 	//TODO ここに記述
+	@Autowired
 	public EmployeeRepository repository;
 
 	/**

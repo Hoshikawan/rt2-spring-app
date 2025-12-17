@@ -62,6 +62,8 @@ public class LoginService {
 			loginResultBean = LoginResultBean.succeedLogin(loginUser);
 		} else {
 			return LoginResultBean.failLogin("社員ID、またはパスワードが間違っています。");
+			// loginResultBean = LoginResultBean.failLogin("社員ID、またはパスワードが間違っています。");
+			// このように回答には書いてあるが自身が書いたreturn文でも問題なく動いてはいる
 		}
 		
 		return loginResultBean;

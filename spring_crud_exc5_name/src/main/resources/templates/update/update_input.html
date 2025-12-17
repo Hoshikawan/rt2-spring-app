@@ -10,6 +10,14 @@
 	
 	<div class="update">
 		<form th:action="@{/update/check}" method="post" th:object="${employeeForm}">
+			
+	<!-- エラーメッセージの出力(入力チェック) -->
+	<p>
+		<span th:each="error:${#fields.detailedErrors()}"> 
+			<span th:text="${error.message}" class="error"></span><br />
+		</span>
+		<span th:text="${errMessage}" class="error"></span>
+	</p>
 	
 			<div class="form">
 				<div class="label">パスワード：</div>

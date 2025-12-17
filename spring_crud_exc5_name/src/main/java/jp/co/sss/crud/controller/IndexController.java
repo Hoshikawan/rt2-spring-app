@@ -28,7 +28,7 @@ public class IndexController {
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
 	public String login(@Valid @ModelAttribute LoginForm loginForm, BindingResult result, Model model, HttpSession sesson) {
 		
-		// 新しく入力チェックのために入れたが書く場所が合っているか分からない（下３行）
+		// 入力チェックのための記述（下３行）
 		if (result.hasErrors()) {
 			return "index";
 		}

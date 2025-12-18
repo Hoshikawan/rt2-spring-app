@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import jp.co.sss.crud.bean.EmployeeBean;
 import jp.co.sss.crud.form.EmployeeForm;
@@ -37,7 +39,20 @@ public class UpdateController {
 	 * @throws ParseException 
 	 */
 	@RequestMapping(path = "/update/input", method = RequestMethod.GET)
-	public String inputUpdate(Integer empId, @ModelAttribute EmployeeForm employeeForm, Model model) {
+	public String inputUpdate(HttpServletRequest request,Integer empId, @ModelAttribute EmployeeForm employeeForm, Model model) {
+		
+		// headerの「ようこそ」リンクから来た場合はempIdが送られてこないためnullになりエラーが出てきてしまう。
+		// ログイン中ユーザーのempIdを使用するとエラーが出てこなくなる。
+		
+		// このリクエストが一覧画面経由ではなくてheader経由で来たと分かるコードを記述
+		if(empId == null) {
+			HttpSession session = request.getSession();
+			// ログイン中の本人情報を取り出している
+			EmployeeBean loginUser = (EmployeeBean)session.getAttribute("loginUser");
+			// 更新対象の社員IDを、ログインしている本人のIDに置き換える
+			empId = loginUser.getEmpId();
+		}
+		
 
 		EmployeeBean employee = null;
 

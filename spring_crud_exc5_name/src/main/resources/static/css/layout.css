@@ -24,7 +24,10 @@ body {
 header {
 	height: 60px;
 	width: 100%;
-	background-color: #87CEEB;
+/*	background-colorは単色なら使用できる グラデーションが上手く読み込まれなかったときの保険*/
+	background-color: #6ce775;
+/*	グラデーションをしたい時はbackground-imageを使う */
+	background-image: radial-gradient(circle, #d7eeff, #c3f2ff, #b1f6fa, #a9f9e9, #b1f9d0);
 	padding-top: 10px;
 }
 
@@ -51,6 +54,7 @@ aside {
 
 aside .title {
 	background-color: #add8e6;
+	background-image: radial-gradient(circle, #d9e5ff, #cfdaff, #cbcdff, #cbbfff, #d0b0ff);
 	margin: 5px 0px 10px 10px;
 	padding: 3px;
 	font-weight: bold;
@@ -88,6 +92,7 @@ article {
 footer {
 	height: 30px;
 	background-color: #87CEEB;
+	background-image: radial-gradient(circle, #ffdbc9, #ffe3c9, #feeccb, #f9f6d0, #f3ffd8);
 	text-align: center;
 	font-size: 8pt;
 	line-height: 30px;

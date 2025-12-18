@@ -21,14 +21,14 @@ public class AccountCheckFilter extends HttpFilter{
 		// 現在アクセスされているURLを取得
 		String requestURL = request.getRequestURI();
 			
-//			権限を持っている者への干渉を削除、それ以外はフィルターを実行
-//			管理者権限が関係するURLかどうかを判定　これら以外のURLの場合は、フィルターの最後でそのまま通過させる
+			//権限を持っている者への干渉を削除、それ以外はフィルターを実行
+			//管理者権限が関係するURLかどうかを判定　これら以外のURLの場合は、フィルターの最後でそのまま通過させる
 			if (requestURL.endsWith("/regist/input") || requestURL.endsWith("/update/input") ||
 					requestURL.endsWith("/delete/check")){
 				System.out.println("社員登録・更新・削除が押された");
 				
-//				権限があるかの判断
-////			セッションからログインユーザー情報を取得
+				//権限があるかの判断
+				//セッションからログインユーザー情報を取得
 				HttpSession session = request.getSession();
 				EmployeeBean loginUser = (EmployeeBean) session.getAttribute("loginUser");	
 				

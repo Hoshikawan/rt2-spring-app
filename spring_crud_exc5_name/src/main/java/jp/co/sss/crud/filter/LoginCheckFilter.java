@@ -23,9 +23,9 @@ public class LoginCheckFilter extends HttpFilter{
 			
 			// endsWith("")これがあることにより、()に書いてあるURLなら通してもいいですよ。という処理になる。
 			// /loginは入力された後の処理なので、/や/logoutが必要となる
-//			ログイン画面への遷移を削除、それ以外はフィルターを実行
+//			ログイン画面への干渉を削除、それ以外はフィルターを実行
 			if (requestURL.endsWith("/login") || requestURL.endsWith("/") || requestURL.endsWith("/logout")) {
-				System.out.println("ログイン関係→フィルター通過");
+				System.out.println("ログイン関係のURLだったからフィルター通過");
 				chain.doFilter(request, response);
 				return ;
 			}
@@ -36,7 +36,7 @@ public class LoginCheckFilter extends HttpFilter{
 //			画面(view)への干渉を削除、それ以外はフィルターを実行
 			if (requestURL.indexOf("/html/") != -1 || requestURL.indexOf("/css/") != -1 ||
 					requestURL.indexOf("/img/") != -1 || requestURL.indexOf("/js/") != -1) {
-				System.out.println("view関係→フィルター通過");
+				System.out.println("view関係のURLだったからフィルター通過");
 				chain.doFilter(request, response);
 				return ;
 			} else {
@@ -48,11 +48,11 @@ public class LoginCheckFilter extends HttpFilter{
 				EmployeeBean loginUser = (EmployeeBean) session.getAttribute("loginUser");
 				
 				if (loginUser == null) {
-					System.out.println("ログインしていない→フィルターでキャッチ");
+					System.out.println("ブラウザで「/spring_crud/」を表示");
 					response.sendRedirect("/spring_crud/");
 					return;
 				} else {
-					System.out.println("ログインしている→フィルター通過");
+					System.out.println("社員一覧画面へ");
 					chain.doFilter(request, response);
 				}
 			}

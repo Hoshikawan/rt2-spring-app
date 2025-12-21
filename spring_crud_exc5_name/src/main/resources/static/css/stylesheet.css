@@ -19,16 +19,6 @@ div.regist_link {
 	text-align: right;
 }
 
-/* JavaScriptでhoverクラスが付いた時の見た目（マウスが乗った時に文字色を変える）*/
-/*div.regist_link a:hover {*/
-/*	color: #0bd;*/
-/*}*/
-
-/* 色の変化を滑らかにした(色が変わるときだけ 0.2秒で滑らかに変化) */
-/*a {*/
-/*	transition: color 0.3s ease;*/
-/*}*/
-
 /* ---- 社員情報一覧テーブル ---- */
 table {
 	background-color: #FFFFFF;

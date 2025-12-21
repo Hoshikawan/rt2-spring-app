@@ -9,8 +9,9 @@
 <body class="admin user_list">
 	<h3>社員一覧画面</h3>
 
+<!--	JavaScriptからgetElementById('regist_link')で要素を取得するためにidを付与している-->
 	<div class="regist_link">
-		<a th:href="@{/regist/input}">新規社員登録</a>
+		<a id="regist_link" th:href="@{/regist/input}">新規社員登録</a>
 	</div>
 
 	<!--	該当社員が0名の場合-->
@@ -65,6 +66,7 @@
 			</td>
 		</tr>
 	</table>
+	<script th:src="@{/js/motion_layout.js}"></script>
 </body>
 
 </html>

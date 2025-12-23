@@ -21,14 +21,14 @@
 	
 			<div class="form">
 				<div class="label">パスワード：</div>
-				<div class="input required">
+				<div class="input required color_box color_box_js">
 					<input type="password" th:field="*{empPass}" />
 				</div>
 			</div>
 			
 			<div class="form">
 				<div class="label">社員名：</div>
-				<div class="input required">
+				<div class="input required color_box color_box_js">
 					<input type="text" th:field="*{empName}" />
 				</div>
 			</div>
@@ -43,14 +43,14 @@
 			
 			<div class="form">
 				<div class="label">住所：</div>
-				<div class="input required">
+				<div class="input required color_box color_box_js">
 					<input type="text" th:field="*{address}" />
 				</div>
 			</div>
 			
 			<div class="form">
 				<div class="label">生年月日：(YYYY/MM/DD)</div>
-				<div class="input required">
+				<div class="input required color_box color_box_js">
 					<input type="text" th:field="*{birthday}" />
 				</div>
 			</div>
@@ -92,5 +92,6 @@
 			</div>
 		</form>
 	</div>
+	<script th:src="@{/js/motion_layout.js}"></script>
 </body>
 </html>

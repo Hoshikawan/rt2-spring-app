@@ -19,6 +19,20 @@ div.regist_link {
 	text-align: right;
 }
 
+.regist_up{
+	margin-right: 5px
+}
+.regist_up:hover{
+	color: #0bd;
+}
+
+.regist_dwon{
+	margin-right: 5px;
+}
+.regist_dwon:hover{
+	color: #0bd;
+}
+
 /* ---- 社員情報一覧テーブル ---- */
 table {
 	background-color: #FFFFFF;
@@ -109,6 +123,10 @@ div.input {
 select {
 	font-size: 10pt;
 	color: #12526d;
+}
+
+.color_box{	
+	transition: color 0.2s ease;
 }
 
 /* ---- 入力フォーム(ログイン) ---- */

@@ -11,6 +11,9 @@
 
 <!--	JavaScriptからgetElementById('regist_link')で要素を取得するためにidを付与している-->
 	<div class="regist_link">
+<!--		sort=asc / sort=desc という情報をURLに付ける記述-->
+		<a class="regist_up" th:href="@{/list(sort=asc)}">社員ID昇順</a>
+		<a class="regist_dwon" th:href="@{/list(sort=desc)}">社員ID降順</a>
 		<a id="regist_link" th:href="@{/regist/input}">新規社員登録</a>
 	</div>
 

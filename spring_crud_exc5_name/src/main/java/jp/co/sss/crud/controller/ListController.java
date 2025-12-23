@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.co.sss.crud.bean.EmployeeBean;
 import jp.co.sss.crud.service.SearchAllEmployeesService;
@@ -34,15 +35,28 @@ public class ListController {
 	 * @throws ParseException 
 	 */
 	@RequestMapping(path = "/list", method = RequestMethod.GET)
-	public String findAll(Model model) {
-
+	// URLの?sort=asc / ?sort=descを受け取る  ※指定されていないとNullになる
+	public String findAll( @RequestParam(name = "sort", required = false) String sort, Model model) {
+		// Controlerでは並び順の判定はしない  sortの値をそのままServiceに渡す
 		List<EmployeeBean> allEmployeeList = null;
-		//TODO SearchAllEmployeesService完成後にコメントを外す
-		allEmployeeList = searchAllEmployeesService.execute();
-
+		allEmployeeList = searchAllEmployeesService.execute(sort);
+		
+		// 取得した社員一覧を画面に渡す
 		model.addAttribute("employees", allEmployeeList);
+		// 一覧画面へ遷移
 		return "list/list";
 	}
+	
+//	@RequestMapping(path = "/list", method = RequestMethod.GET)
+//	public String findAll(Model model) {
+//
+//		List<EmployeeBean> allEmployeeList = null;
+//		//TODO SearchAllEmployeesService完成後にコメントを外す
+//		allEmployeeList = searchAllEmployeesService.execute();
+//
+//		model.addAttribute("employees", allEmployeeList);
+//		return "list/list";
+//	}
 
 	/**
 	 * 社員情報を社員名検索した結果を出力

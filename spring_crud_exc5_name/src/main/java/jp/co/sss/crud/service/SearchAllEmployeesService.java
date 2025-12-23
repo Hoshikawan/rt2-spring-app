@@ -35,18 +35,33 @@ public class SearchAllEmployeesService {
 	 * 
 	 * データベースから全ての従業員エンティティを従業員ID昇順で取得し、
 	 * BeanManagerを使用してEmployeeBeanリストに変換して返却します。
+	 * @param sort 
 	 * 
 	 * @return 全従業員のEmployeeBeanリスト（従業員ID昇順）。データが存在しない場合は空のリストを返却
 	 */
 	//TODO ここに記述
-	public List<EmployeeBean> execute(){
-		List<Employee> empList = repository.findAllByOrderByEmpId();
-		
-		// BeanManagerクラスの中に、{@codeList<Employee> -> List<EmployeeBean>} これがあった。
+	public List<EmployeeBean> execute(String sort){
+		List<Employee> empList;
+		// sort の値によって処理を分岐する
+		if ("desc".equals(sort)) {
+			empList = repository.findAllByOrderByEmpIdDesc(); // 降順で社員を取得
+		} else {
+			empList = repository.findAllByOrderByEmpIdAsc(); // asc / null / 不正値はすべて昇順
+		}
+		// Entity（データベース用） → Bean（画面用）に変換
 		List<EmployeeBean> empBeans = BeanManager.copyEntityListToBeanList(empList);
 		
 		return empBeans;
-		
 	}
+	
+//	public List<EmployeeBean> execute(){
+//		List<Employee> empList = repository.findAllByOrderByEmpIdAsc();
+//		
+//		// BeanManagerクラスの中に、{@codeList<Employee> -> List<EmployeeBean>} これがあった。
+//		List<EmployeeBean> empBeans = BeanManager.copyEntityListToBeanList(empList);
+//		
+//		return empBeans;
+//		
+//	}
 
 }

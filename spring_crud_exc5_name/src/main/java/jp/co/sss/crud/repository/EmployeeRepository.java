@@ -10,7 +10,10 @@ import jp.co.sss.crud.entity.Employee;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
 	Employee findByEmpIdAndEmpPass(Integer empId, String empPass);
 	
-	List<Employee> findAllByOrderByEmpId();
+	// 昇順
+	List<Employee> findAllByOrderByEmpIdAsc();
+	// 降順
+	List<Employee> findAllByOrderByEmpIdDesc();
 	
 	List<Employee> findByEmpNameContainingOrderByEmpId(String empName);
 	
